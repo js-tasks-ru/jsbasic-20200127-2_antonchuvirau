@@ -10,6 +10,18 @@ function print(text) {
  * чтобы функция sayHello работала корректно
  */
 function isValid(name) {
+  if (name){
+    let spaceIndex = name.indexOf(' ');
+    if (name.length >=4 && spaceIndex === -1){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  else{
+    return false;
+  }
 }
 
 function sayHello() {
