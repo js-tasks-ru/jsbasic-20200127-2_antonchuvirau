@@ -5,4 +5,7 @@
  * @returns {string}
  */
 function showSalary(data, age) {
+    return data.filter(item=>item.age<=age).map((item)=>{
+        return item.name + ', ' + item.balance;
+      }).join('\n');
 }
