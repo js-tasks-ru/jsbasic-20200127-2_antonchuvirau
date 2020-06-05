@@ -105,9 +105,6 @@ class CheckoutProductList {
         this.el.querySelector('.product-list-box').append(productTemplateLayout);
       });
     }
-    else {
-      alert('Корзина пуста');
-    }
   }
 }
 

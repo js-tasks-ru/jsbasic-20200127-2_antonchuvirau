@@ -44,7 +44,6 @@ class Menu {
           }
         }));
       });
-      item.addEventListener('select', (event) => console.log(event.detail.id));
     }
   }
   render() {

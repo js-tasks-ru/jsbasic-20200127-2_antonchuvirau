@@ -15,7 +15,6 @@ class ProductList {
   constructor(element) {
     this.el = element;
     this.el.innerHTML = this.productsWrapperTemplate;
-    this.show().then(console.log('Продукты получены'));
     this.el.querySelector('.homepage-cards').addEventListener('click', (event) => {
       let target = event.target;
       if (target.tagName === 'BUTTON' && target.dataset.buttonRole) {
@@ -33,9 +32,6 @@ class ProductList {
             this.orderedProducts.push(orderedProduct);
             localStorage.removeItem('cart-products');
             localStorage.setItem('cart-products', JSON.stringify(this.orderedProducts, null, 2));
-          }
-          else {
-            alert('Товар уже добавлен в корзину');
           }
         }
       }
