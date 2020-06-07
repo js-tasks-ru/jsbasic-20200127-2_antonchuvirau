@@ -23,29 +23,6 @@ class ClearedTable {
   render(data) {
     this.el.createTHead();
     this.el.createTBody();
-    this.el.querySelector('thead').append(document.createElement('tr'));
-    let tableTitles = Object.keys(data[0]);
-    //Fill table header
-    for (let key of tableTitles) {
-      let tableHeaderCell = document.createElement('td');
-      tableHeaderCell.textContent = key;
-      this.el.querySelector('thead tr').append(tableHeaderCell);
-    }
-    //Fill table body
-    for (let item of data) {
-      let tableBodyRow = document.createElement('tr');
-      let itemValues = Object.values(item);
-      for (let value of itemValues) {
-        let tableBodyCell = document.createElement('td');
-        tableBodyCell.textContent = value;
-        tableBodyRow.append(tableBodyCell);
-      }
-      this.el.querySelector('tbody').append(tableBodyRow);
-    }
-  }
-  render(data) {
-    this.el.createTHead();
-    this.el.createTBody();
     let tableHeader = this.el.querySelector('thead').innerHTML = '<tr></tr>';
     let tableTitles = Object.keys(data[0]);
     //Fill table header
@@ -76,7 +53,7 @@ class ClearedTable {
    * @param {number} id - идентификатор удаляемого пользователя
    */
   onRemoved(id) {
-    console.log(`Из таблицы удален пользователь ${id}`);
+    return `Из таблицы удален пользователь ${id}`;
   }
 }
 

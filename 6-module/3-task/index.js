@@ -26,6 +26,38 @@ class Menu {
   `;
 
   constructor(element) {
+    this.el = element;
+    this.render();
+    let dropdownElementsCollection = this.el.querySelectorAll('.dropdown');
+    let navLinksCollection = this.el.querySelectorAll('.nav-link');
+    for (let item of dropdownElementsCollection) {
+      item.addEventListener('pointerenter', (event) => this.onPointerEnter(event));
+      item.addEventListener('pointerleave', (event) => this.onPointerLeave(event));
+    }
+    for (let item of navLinksCollection) {
+      item.addEventListener('click', (event) => {
+        event.preventDefault();
+        item.dispatchEvent(new CustomEvent("select", {
+          bubbles: false,
+          detail: {
+            id: item.getAttribute('id')
+          }
+        }));
+      });
+    }
+  }
+  render() {
+    this.el.innerHTML = this.template;
+  }
+  onPointerEnter(event) {
+    let target = event.target;
+    target.querySelector('.dropdown-menu').classList.add('show');
+    document.querySelector('.backdrop').classList.add('show');
+  }
+  onPointerLeave(event) {
+    let target = event.target;
+    target.querySelector('.dropdown-menu').classList.remove('show');
+    document.querySelector('.backdrop').classList.remove('show');
   }
 }
 
